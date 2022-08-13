@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import Footer from './Components/Footer';
+import Header from './Components/Header';
+import About from "./pages/About";
+import Roadmap from "./pages/Roadmap";
+import Main from './pages/Main';
+
+import './styles/App.css';
+import './styles/fonts.css';
+import './styles/main.css';
+import './styles/about.css';
+import './styles/roadmap.css';
+import './styles/media.css';
+import HowBuy from "./pages/HowBuy";
+import FAQ from "./pages/FAQ";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function App() {
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main />}  />
+          <Route path="/about" element={<About />}  />
+          <Route path="/roadmap" element={<Roadmap />}  />
+          <Route path="/how-to-buy" element={<HowBuy />}  />
+          <Route path="/faq" element={<FAQ />}  />
+        </Routes>
+
+        <Footer />
     </div>
   );
 }
